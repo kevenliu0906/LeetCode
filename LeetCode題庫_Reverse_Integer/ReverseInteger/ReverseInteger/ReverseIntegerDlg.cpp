@@ -162,10 +162,12 @@ void CReverseIntegerDlg::OnBnClickedButton1()
 	CString    Msg_cstr = _T("");
 	int        InputNum_i = 0;
 	int        ReverNum_i = 0;
+	int        Max_Int_Value_i = pow(2, 31) - 1;
+	int        Min_Int_Value_i = pow(-2, 31);
 
 	//---------------------------------
 
-	InputNum_i = 153423646;
+	InputNum_i = 1534236469;
 	ReverNum_i = reverse(InputNum_i);
 
 	Msg_cstr.Format(_T("Input:%d, Reverse;%d"), InputNum_i, ReverNum_i);
