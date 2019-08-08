@@ -168,6 +168,8 @@ void CReverseIntegerDlg::OnBnClickedButton1()
 	//---------------------------------
 
 	InputNum_i = 1534236469;
+	//ReverNum_i = reverse1(InputNum_i);
+	//InputNum_i = -123;
 	ReverNum_i = reverse(InputNum_i);
 
 	Msg_cstr.Format(_T("Input:%d, Reverse;%d"), InputNum_i, ReverNum_i);
