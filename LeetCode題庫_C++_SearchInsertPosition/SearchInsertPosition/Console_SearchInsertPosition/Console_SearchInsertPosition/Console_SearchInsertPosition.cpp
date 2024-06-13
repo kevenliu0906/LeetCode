@@ -14,9 +14,9 @@ public:
         int right = nums.size() - 1;
         while( left <= right ){
             int mid = left + (right - left)/2;
-            if( target == nums[mid] )
-                return mid;
-            else if( target < nums[mid] )
+            // if( target == nums[mid] )
+            //     return mid;
+            if( target <= nums[mid] )
                 right = mid - 1;
             else 
                 left = mid + 1;
@@ -93,6 +93,28 @@ int main()
     printf("\n");
 
     printf("Search Insert Position is %d\n", res2);
+    printf("****************************************\n");
+
+    printf("\n\n");
+
+    printf("****************************************\n");
+    // Input: nums:[1, 3, 5, 5, 6], target:5 (with repeat num in input array)
+    // Output: 4
+    printf("test case 4, input nums:[1, 3, 5, 5, 6], target:5 (with repeat num in input array)\n");
+    vector<int> nums3{ 1, 3, 5, 5, 6 };
+    int target3 = 5;
+    Solution _Solution3;
+    auto res3 = _Solution3.searchInsert(nums3, target3);
+    printf("input nums:");
+    for (size_t i = 0; i < nums3.size(); i++)
+    {
+        printf("%d, ", nums3[i]);
+    }
+    printf("\n");
+    printf("target:%d\n", target3);
+    printf("\n");
+
+    printf("Search Insert Position is %d\n", res3);
     printf("****************************************\n");
 }
 
