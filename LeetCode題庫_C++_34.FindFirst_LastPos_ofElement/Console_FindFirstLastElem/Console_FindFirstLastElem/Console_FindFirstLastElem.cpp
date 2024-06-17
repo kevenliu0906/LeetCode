@@ -84,7 +84,7 @@ public:
 
 int main()
 {
-    std::cout << "Hello LeetCode - Find First and Last Position of element in sorted array!\n";
+    std::cout << "Hello LeetCode - Find First and Last Position of element in sorted array, data structure - BINARY SEARCH!\n";
     printf("LeetCode - 34. Find First and Last Position of Element in Sorted Array\n");
     cout << "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/" << endl << endl;;
 
