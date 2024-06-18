@@ -12,7 +12,9 @@ using namespace std;
 class Solution{
 public:
     vector<int> intersection(vector<int> &nums1, vector<int> &nums2){
-        // step1, put all the elements from nums1 into "set"
+        // step1, put all the elements from nums1 into the "unordered_set" container
+        // "unordered_set" feature - the element in "unordered_set" will be unique, NOT repeat and unordered.
+        // "set" feature - the element in "set" will be ordered.
         unordered_set<int> total(nums1.begin(), nums1.end());
         unordered_set<int> repeat;
         
@@ -22,7 +24,7 @@ public:
         for (auto num2 : nums2)
         {
             // step2, 
-            // find if the elements within nums2 is existed in set(announce is step1) or NOT 
+            // check if all the elements within nums2 are existed in set(announce in step1) or NOT 
             if (total.find(num2) != total.end() )
             {
                 repeat.insert(num2);
@@ -42,6 +44,7 @@ int main()
     printf("LeetCode - 349. Intersection of Two Arrays\n");
     cout << "https://leetcode.com/problems/intersection-of-two-arrays/" << endl << endl;
     cout << "solution: https://www.cnblogs.com/grandyang/p/5507129.html/" << endl;
+    cout << "technique - unordered_set introduction" << endl;
 
     printf("*****************************************************\n");
     printf("************* testcase 1 ****************************\n");
