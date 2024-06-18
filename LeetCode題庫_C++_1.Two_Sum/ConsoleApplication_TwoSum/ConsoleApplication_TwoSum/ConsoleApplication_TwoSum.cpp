@@ -46,7 +46,7 @@ public:
 
 int main()
 {
-    std::cout << "Hello LeetCode - Two Sum, data structure - HASH TABLE !\n";
+    std::cout << "Hello LeetCode - Two Sum, data structure - DataStructure (HASH TABLE) !\n";
 
     printf("LeetCode - 1. Two Sum\n");
     cout << "https://leetcode.com/problems/two-sum/" << endl << endl;
