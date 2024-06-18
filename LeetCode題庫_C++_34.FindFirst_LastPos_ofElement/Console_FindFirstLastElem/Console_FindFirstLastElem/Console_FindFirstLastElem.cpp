@@ -84,9 +84,10 @@ public:
 
 int main()
 {
-    std::cout << "Hello LeetCode - Find First and Last Position of element in sorted array, data structure - BINARY SEARCH!\n";
+    std::cout << "Hello LeetCode - Find First and Last Position of element in sorted array, Algorithm (BINARY SEARCH)!\n";
     printf("LeetCode - 34. Find First and Last Position of Element in Sorted Array\n");
-    cout << "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/" << endl << endl;;
+    cout << "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/" << endl << endl;
+    cout << "solution: https://medium.com/appworks-school/binary-search-%E9%82%A3%E4%BA%9B%E8%97%8F%E5%9C%A8%E7%B4%B0%E7%AF%80%E8%A3%A1%E7%9A%84%E9%AD%94%E9%AC%BC-%E4%B8%89-%E5%BE%88%E5%A4%9A%E7%9B%B8%E5%90%8C%E7%9A%84%E6%83%85%E5%A2%83-c2215d1b9dc7" << endl;
 
     printf("*****************************************************\n");
     printf("************* testcase 1 ****************************\n");
