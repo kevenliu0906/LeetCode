@@ -18,7 +18,6 @@ public:
         unordered_set<int> total(nums1.begin(), nums1.end());
         unordered_set<int> repeat;
         
-        unordered_map<int, int> non_repeat;
         vector<int> result;
         
         for (auto num2 : nums2)
