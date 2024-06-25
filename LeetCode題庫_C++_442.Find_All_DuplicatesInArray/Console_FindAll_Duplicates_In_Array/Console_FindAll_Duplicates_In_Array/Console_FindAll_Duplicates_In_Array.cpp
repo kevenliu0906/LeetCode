@@ -39,7 +39,7 @@ int main()
 {
     std::cout << "Hello LeetCode - Find All Duplicates in an Array, DataStructure (Array, HASH TABLE)!\n";
 
-    printf("LeetCode - 448. Find All Numbers disappeared in an array\n");
+    printf("LeetCode - 442. Find All Duplicates in an Array\n");
     cout << "https://leetcode.com/problems/find-all-duplicates-in-an-array/" << endl << endl;
     // cout << "solution: https://medium.com/@zero.ling/c-sort-a-map-by-value-601a60ec0e01" << endl;
 
