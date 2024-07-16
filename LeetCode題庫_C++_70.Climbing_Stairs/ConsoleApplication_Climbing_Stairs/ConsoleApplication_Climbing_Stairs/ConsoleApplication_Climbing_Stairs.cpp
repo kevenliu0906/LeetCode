@@ -14,6 +14,7 @@ public:
     int climbStairs(int n) {
 
         // solution 1 (best, using DP(Dynamic Programming - Tabulation) )
+        // reference: https://www.geeksforgeeks.org/count-ways-reach-nth-stair/
         {
             vector<int> dp(n+1, 0);
             dp[0] = dp[1] = 1;
@@ -147,7 +148,7 @@ int main()
     std::cout << "Hello LeetCode - Climbing Stairs, Algorithm (Math, Dynamic Programming)!\n";
     printf("LeetCode - 70. Climbing Stairs\n");
     cout << "https://leetcode.com/problems/climbing-stairs" << endl << endl;
-    // cout << "solution: https://mocowcow.github.io/leetcode-222-count-complete-tree-nodes/" << endl;
+    cout << "solution: https://www.geeksforgeeks.org/count-ways-reach-nth-stair/" << endl;
 
     printf("*****************************************************\n");
     printf("************* testcase 1 ****************************\n");
