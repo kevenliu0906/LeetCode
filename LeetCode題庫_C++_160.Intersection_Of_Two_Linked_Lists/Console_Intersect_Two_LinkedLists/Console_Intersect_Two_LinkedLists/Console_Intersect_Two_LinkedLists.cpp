@@ -79,6 +79,7 @@ int main()
 {
     std::cout << "Hello LeetCode - Intersection of Two Linked Lists, DataStructure(Linked List)!\n";
     printf("LeetCode - 160. Intersection of two linked lists\n");
+    printf("[Note] intersection means two linked list have intersection in the end of list.\n");
     cout << "https://leetcode.com/problems/intersection-of-two-linked-lists" << endl << endl;
     // cout << "solution: https://www.geeksforgeeks.org/count-ways-reach-nth-stair/" << endl;
 
