@@ -50,7 +50,7 @@ public:
 int main()
 {
     std::cout << "Hello LeetCode, Palindrome Linked List, DataStructure(Linked List)!\n";
-    cout << "https://leetcode.com/problems/longest-consecutive-sequence" << endl << endl;
+    cout << "https://leetcode.com/problems/palindrome-linked-list" << endl << endl;
     // cout << "solution: https://www.geeksforgeeks.org/count-ways-reach-nth-stair/" << endl;
 
     printf("*****************************************************\n");
