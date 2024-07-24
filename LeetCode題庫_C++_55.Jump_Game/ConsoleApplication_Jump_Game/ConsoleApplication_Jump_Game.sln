@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication_Jump_Game", "ConsoleApplication_Jump_Game\ConsoleApplication_Jump_Game.vcxproj", "{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Debug|x64.ActiveCfg = Debug|x64
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Debug|x64.Build.0 = Debug|x64
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Debug|x86.ActiveCfg = Debug|Win32
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Debug|x86.Build.0 = Debug|Win32
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Release|x64.ActiveCfg = Release|x64
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Release|x64.Build.0 = Release|x64
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Release|x86.ActiveCfg = Release|Win32
+		{BC74721D-BC71-4CF3-B126-B2F8E8D418FC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E717709-8B51-445E-8250-E53E6A41A2E1}
+	EndGlobalSection
+EndGlobal
