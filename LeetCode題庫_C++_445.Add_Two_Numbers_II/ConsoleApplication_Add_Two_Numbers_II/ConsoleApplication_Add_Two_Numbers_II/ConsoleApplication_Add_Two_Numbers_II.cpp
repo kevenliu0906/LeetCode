@@ -28,13 +28,11 @@ public:
             vector<ListNode *> l2_vec;
 
             // STEP1-> record ListNode to vector
-            while (tmp_l1 != NULL)
-            {
+            while (tmp_l1 != NULL){
                 l1_vec.push_back(tmp_l1);
                 tmp_l1 = tmp_l1->next;
             }
-            while (tmp_l2 != NULL)
-            {
+            while (tmp_l2 != NULL){
                 l2_vec.push_back(tmp_l2);
                 tmp_l2 = tmp_l2->next;
             }
@@ -46,9 +44,17 @@ public:
             int index_l2 = l2_vec.size() - 1;       
             int current_sum = 0;
 
-            while (index_l1 >= 0 && index_l2 >= 0)
+            while (index_l1 >= 0 || index_l2 >= 0)
             {
-                current_sum += l1_vec[index_l1]->val + l2_vec[index_l2]->val;
+                if (index_l1>=0){
+                    current_sum += l1_vec[index_l1]->val;
+                }
+                if (index_l2>=0){
+                    current_sum += l2_vec[index_l2]->val;
+                }
+                
+                
+                // current_sum += l1_vec[index_l1]->val + l2_vec[index_l2]->val;
                 // printf("current_sum:%d, l1_vec[%d]:%d, l2_vec[%d]:%d\n", current_sum, index_l1, l1_vec[index_l1]->val, index_l2, l2_vec[index_l2]->val);
                 result = new ListNode(current_sum%10, NULL);
                 current_sum = current_sum/10;
@@ -60,56 +66,27 @@ public:
                 }
                 currentNode = result;
                 
-                index_l1--;
-                index_l2--;
+                if (index_l1>=0){
+                    index_l1--;
+                }
+                if (index_l2>=0){
+                    index_l2--;
+                }
             }
 
-            // rest element of l1_vec or l2_vec case
+            // only over-bit case
+            while (current_sum)
             {
-                while ( index_l1>=0 || index_l2>=0 )
-                {
-                    if (index_l1>=0)
-                    {
-                        current_sum += l1_vec[index_l1]->val;
-                        // printf("reset case, current_sum:%d, l1_vec[%d]:%d\n", current_sum, index_l1, l1_vec[index_l1]->val);
-                    }
-                    if (index_l2>=0)
-                    {
-                        current_sum += l2_vec[index_l2]->val;
-                        // printf("reset case, current_sum:%d, l2_vec[%d]:%d\n", current_sum, index_l2, l2_vec[index_l2]->val);
-                    }
-                    
-                    result = new ListNode(current_sum%10, NULL);
-                    current_sum = current_sum/10;
-                    
-                    if (currentNode == NULL)
-                    {
-                        ;
-                    }else{
-                        result->next = currentNode;
-                    }
-                    currentNode = result;
-
-                    if (index_l1>=0)
-                        index_l1--;
-                    if (index_l2>=0)
-                        index_l2--;
+                result = new ListNode(current_sum%10, NULL);
+                // printf("over-bit case, only current_sum, current_sum:%d\n", current_sum);
+                if (currentNode == NULL){
+                    ;
+                }else{
+                    result->next = currentNode;
                 }
-                // only over-bit case
-                while (current_sum)
-                {
-                    result = new ListNode(current_sum%10, NULL);
-                    // printf("rest element of l1_vec, only current_sum, current_sum:%d\n", current_sum);
-                    if (currentNode == NULL)
-                    {
-                        ;
-                    }else{
-                        result->next = currentNode;
-                    }
-                    currentNode = result;
+                currentNode = result;
 
-                    current_sum = current_sum/10;
-                }
+                current_sum = current_sum/10;
             }
             
             return result;
