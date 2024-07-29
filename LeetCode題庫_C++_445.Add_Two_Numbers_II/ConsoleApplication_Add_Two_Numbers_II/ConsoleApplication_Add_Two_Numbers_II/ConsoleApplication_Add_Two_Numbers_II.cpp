@@ -53,8 +53,6 @@ public:
                     current_sum += l2_vec[index_l2]->val;
                 }
                 
-                
-                // current_sum += l1_vec[index_l1]->val + l2_vec[index_l2]->val;
                 // printf("current_sum:%d, l1_vec[%d]:%d, l2_vec[%d]:%d\n", current_sum, index_l1, l1_vec[index_l1]->val, index_l2, l2_vec[index_l2]->val);
                 result = new ListNode(current_sum%10, NULL);
                 current_sum = current_sum/10;
@@ -78,7 +76,7 @@ public:
             while (current_sum)
             {
                 result = new ListNode(current_sum%10, NULL);
-                // printf("over-bit case, only current_sum, current_sum:%d\n", current_sum);
+                // printf("only over-bit case, current_sum:%d\n", current_sum);
                 if (currentNode == NULL){
                     ;
                 }else{
