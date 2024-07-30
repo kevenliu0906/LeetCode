@@ -69,7 +69,7 @@ public:
 int main()
 {
     std::cout << "Hello LeetCode - Linked List Random Node, DataStructure(Linked List)!\n";
-    cout << "https://leetcode.com/problems/design-hashmap" << endl << endl;
+    cout << "https://leetcode.com/problems/linked-list-random-node/description/" << endl << endl;
     // cout << "solution: https://https://hackmd.io/@Zero871015/LeetCode-237/" << endl;
 
     printf("*****************************************************\n");
