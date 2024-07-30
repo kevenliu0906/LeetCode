@@ -88,7 +88,7 @@ public:
 int main()
 {
     std::cout << "Hello LeetCode - Reorder List, DataStructure(Linked List) & Algorithm(Two Pointer)!\n";
-    cout << "https://leetcode.com/problems/delete-node-in-a-linked-list/" << endl << endl;
+    cout << "https://leetcode.com/problems/reorder-list/" << endl << endl;
     // cout << "solution: https://https://hackmd.io/@Zero871015/LeetCode-237/" << endl;
 
     printf("*****************************************************\n");
