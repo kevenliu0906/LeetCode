@@ -11,6 +11,33 @@ class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
 
+        // solution 0 (keven, best, using binary search)
+        {
+            int leftIndex = 0;
+            int rightIndex = arr.size() - 1;
+            while (rightIndex - leftIndex >= 2)
+            {
+                int midIndex = leftIndex + (rightIndex - leftIndex)/2;
+                if (arr[midIndex] - arr[midIndex-1] > 0)
+                {
+                    // represent the left-side is lower side, so consider the right-side
+                    leftIndex = midIndex;
+                }
+                else {
+                    rightIndex = midIndex-1;
+                }
+            }
+
+            if (arr[leftIndex] > arr[rightIndex])
+            {
+                return leftIndex;
+            }else{
+                return rightIndex;
+            }
+            
+            
+        }
+
         // solution 1 (keven, using HASH TABLE to solve)
         {
             multimap<int,int> peak_value_index_multimap;   // key: element_value, value: element_index

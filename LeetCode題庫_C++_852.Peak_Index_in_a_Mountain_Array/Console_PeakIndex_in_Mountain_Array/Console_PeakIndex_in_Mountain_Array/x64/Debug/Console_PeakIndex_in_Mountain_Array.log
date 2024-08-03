@@ -1,0 +1,1 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5492,5): error MSB3491: 無法將行寫入檔案 "x64\Debug\Console_PeakIndex_in_Mountain_Array.vcxproj.FileListAbsolute.txt"。路徑: x64\Debug\Console_PeakIndex_in_Mountain_Array.vcxproj.FileListAbsolute.txt 超過 OS 路徑上限。完整檔案名稱必須少於 260 個字元。
