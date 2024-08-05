@@ -11,7 +11,25 @@ class Solution {
 public:
     int findMin(vector<int>& nums) {
 
-        // solution 0 (best)
+        // solution 0.1 (keven, using std::sort & rotated array sympth)
+        {
+            auto biggestValue = std::max_element(nums.begin(), nums.end());
+            // printf("biggestValue:%d\n", *biggestValue);
+            // sort(nums.begin(), nums.end());
+            if (nums[nums.size() - 1] == *biggestValue)
+            {
+                // represent current rotated array is NOT rotated
+                return nums[0];
+            }
+            else{
+                // represent current rotated array is rotated by X terms, so next to the biggest element is the smallest element in rotated array
+                auto smallestValue = biggestValue;
+                smallestValue++;
+                return *smallestValue;
+            }
+            
+        }
+        // solution 0 (keven, using binary search to solve, best)
         {
             int leftIndex = 0;
             int rightIndex = nums.size()-1;
