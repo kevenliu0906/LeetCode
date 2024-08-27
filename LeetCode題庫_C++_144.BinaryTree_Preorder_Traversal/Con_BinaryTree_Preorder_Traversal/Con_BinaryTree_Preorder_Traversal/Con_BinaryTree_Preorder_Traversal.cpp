@@ -35,6 +35,7 @@ public:
             preorderTraversal(root->left);   // 2nd, traversal to left-side
             preorderTraversal(root->right);  // 3rd, traversal to right-side
 
+            return res;
         }
 
         // solution 1 (keven, using stack to solve, best)
