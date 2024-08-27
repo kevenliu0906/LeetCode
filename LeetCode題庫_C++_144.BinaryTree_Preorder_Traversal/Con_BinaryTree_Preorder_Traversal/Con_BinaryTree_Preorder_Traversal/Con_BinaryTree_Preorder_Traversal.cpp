@@ -20,7 +20,22 @@ struct TreeNode {
  
 class Solution {
 public:
+    
+    vector<int> res;
+
     vector<int> preorderTraversal(TreeNode* root) {
+
+        // solution 0 (reference other and write it by myself)
+        {
+            if (root == NULL){
+                return res;
+            }
+            
+            res.push_back(root->val);        // 1st, print root first
+            preorderTraversal(root->left);   // 2nd, traversal to left-side
+            preorderTraversal(root->right);  // 3rd, traversal to right-side
+
+        }
 
         // solution 1 (keven, using stack to solve, best)
         {
