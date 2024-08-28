@@ -34,6 +34,8 @@ public:
             inorderTraversal(root->left);
             res.push_back(root->val);
             inorderTraversal(root->right);
+
+            return res;
         }
     }
 };
