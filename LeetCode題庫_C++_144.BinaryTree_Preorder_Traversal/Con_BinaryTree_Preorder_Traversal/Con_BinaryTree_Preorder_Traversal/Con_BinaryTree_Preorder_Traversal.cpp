@@ -25,7 +25,7 @@ public:
 
     vector<int> preorderTraversal(TreeNode* root) {
 
-        // solution 0 (reference other and write it by myself)
+        // solution 0 (reference other and using recursive to solve)
         {
             if (root == NULL){
                 return res;

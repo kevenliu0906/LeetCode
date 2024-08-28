@@ -31,9 +31,9 @@ public:
                 return res;
             }
             
-            inorderTraversal(root->left);
-            res.push_back(root->val);
-            inorderTraversal(root->right);
+            inorderTraversal(root->left);   // 1st. traversal to left-side
+            res.push_back(root->val);       // 2nd, print root
+            inorderTraversal(root->right);  // 3rd. traversal to left-side
 
             return res;
         }
