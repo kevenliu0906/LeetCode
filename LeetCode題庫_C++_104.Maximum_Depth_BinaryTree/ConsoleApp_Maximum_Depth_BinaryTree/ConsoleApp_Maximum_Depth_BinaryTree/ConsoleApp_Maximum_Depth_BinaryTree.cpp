@@ -36,7 +36,7 @@ public:
 int main()
 {
     std::cout << "Hello LeetCode - Maximum Depth of Binary Tree, DataStructure and Algorithm(queue, BinaryTree, DFS, BFS)!\n";
-    cout << "https://leetcode.com/problems/n-ary-tree-preorder-traversal/" << endl << endl;
+    cout << "https://leetcode.com/problems/maximum-depth-of-binary-tree/" << endl << endl;
 
     printf("*****************************************************\n");
     printf("************* testcase 1 ****************************\n");
