@@ -134,7 +134,7 @@ void dbg_BT_node(TreeNode *root)
 int main()
 {
     std::cout << "Hello LeetCode - Convert Sorted List to Binary Search Tree, DataStructure and Algorithm(LinkedList, Divide and Conquer, Binary Search, Tree)!\n";
-    cout << "https://leetcode.com/problems/binary-tree-preorder-traversal" << endl << endl;
+    cout << "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/" << endl << endl;
 
     printf("*****************************************************\n");
     printf("************* testcase 1 ****************************\n");
