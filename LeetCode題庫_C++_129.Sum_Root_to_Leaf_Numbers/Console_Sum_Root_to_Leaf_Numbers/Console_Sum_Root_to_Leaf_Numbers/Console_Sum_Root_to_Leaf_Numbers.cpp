@@ -21,7 +21,7 @@ struct TreeNode {
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
-        // solution 1 (keven, using queue to solve)
+        // solution 1 (keven, using queue and HASH TABLE to solve)
         {
             if (root == NULL){
                 return 0;
