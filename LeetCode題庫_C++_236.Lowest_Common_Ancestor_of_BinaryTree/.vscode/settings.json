@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "queue": "cpp",
+        "xhash": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp"
+    }
+}
