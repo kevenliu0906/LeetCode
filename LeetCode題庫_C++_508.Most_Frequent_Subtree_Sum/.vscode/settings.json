@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "utility": "cpp",
+        "vector": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "xhash": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp"
+    }
+}
