@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "queue": "cpp",
+        "vector": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp"
+    }
+}
