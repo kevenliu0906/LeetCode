@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -23,17 +24,43 @@ public:
     vector<int> res;
     
     vector<int> inorderTraversal(TreeNode* root) {
-        // solution 0 (keven, using recursive to solve)
-        {
+        // // solution 0 (keven, using recursive to solve)
+        // {
 
-            if (root == NULL)
-            {
-                return res;
-            }
+        //     if (root == NULL)
+        //     {
+        //         return res;
+        //     }
             
-            inorderTraversal(root->left);   // 1st. traversal to left-side
-            res.push_back(root->val);       // 2nd, print root
-            inorderTraversal(root->right);  // 3rd. traversal to left-side
+        //     inorderTraversal(root->left);   // 1st. traversal to left-side
+        //     res.push_back(root->val);       // 2nd, print root
+        //     inorderTraversal(root->right);  // 3rd. traversal to left-side
+
+        //     return res;
+        // }
+
+        // solution 1 (keven, using stack to solve)
+        {
+            stack<TreeNode*> store_tn_stack;
+            TreeNode *cur_tn = root;
+
+            while (cur_tn || store_tn_stack.size())
+            {
+                // STEP1: traverse left-side node
+                while (cur_tn)
+                {
+                    store_tn_stack.push(cur_tn);
+                    cur_tn = cur_tn->left;
+                }
+                
+                // STEP2: get last root tn from stored stack
+                cur_tn = store_tn_stack.top();
+                store_tn_stack.pop();
+                res.push_back(cur_tn->val);
+
+                // STEP3: traverse right-side secondly
+                cur_tn = cur_tn->right;
+            }
 
             return res;
         }
