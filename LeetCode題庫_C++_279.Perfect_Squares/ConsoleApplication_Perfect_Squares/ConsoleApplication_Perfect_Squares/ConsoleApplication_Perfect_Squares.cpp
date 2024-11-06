@@ -14,6 +14,10 @@ private:
     vector<bool> check_num_status_vec; // record already check num to reduce time
 
     void calc_base_num(int n){
+        // reset
+        base_num_vec.clear();
+        check_num_status_vec.clear();
+
         int check_num = 1;
         while(check_num < n)
         {
@@ -28,10 +32,40 @@ private:
         check_num_status_vec.resize(n+1, false);  // initial check_num_status array to false
     }
 
-    int calc_numSquares(int n){
-        if ( n == 1){
-            return 1;
+    int calc_numSquares_with_DP(int n){
+
+        // printf("calc_numSquares_with_DP!!!!!\n");
+
+        if (n == 1) return 1;
+
+        // STEP1: find out the base_num and storage it
+        calc_base_num(n);
+
+        // STEP2: using DP to find the result
+        vector<int> DP(n+1, INT_MAX);
+        DP[0] = 0;
+
+        for (size_t i = 1; i < DP.size(); i++)
+        {
+            for (size_t j = 0; j < base_num_vec.size(); j++)
+            {
+                if (i < base_num_vec[j]) break;   // represent i-base_num_vec[j] is negative, is illegal case, so not need to consider
+                
+                DP[i] = min(DP[i], 1 + DP[i-base_num_vec[j]]);
+            }
         }
+        
+        if (DP[n] == INT_MAX) return -1;
+        
+        return DP[n];
+        
+    }
+
+    int calc_numSquares_with_BFS(int n){
+        
+        // printf("calc_numSquares_with_BFS!!!!!\n");
+
+        if ( n == 1) return 1;
         
         // STEP1: find out the base_num and storge it
         calc_base_num(n);
@@ -89,9 +123,14 @@ private:
 
 public:
     int numSquares(int n) {
+        // solution 0 (keven, using DP to solve, best performance)
+        {
+            auto res = calc_numSquares_with_DP(n);
+            return res;
+        }
         // solution 1 (keven, using BFS to solve)
         {
-            auto res = calc_numSquares(n);
+            auto res = calc_numSquares_with_BFS(n);
             return res;
         }
     }
