@@ -29,11 +29,9 @@ private:
         return true;
     }
 
-    int check_onechar_for_startGen_From_bank(string startGene, string endGene, vector<string>  &bank){
-        if (bank.empty())
-        {
-            return -1;
-        }
+    int start_move_From_bank_BFS(string startGene, string endGene, vector<string>  &bank){
+
+        if (bank.empty()) return -1;
         
         queue<string> cur_gene_que;
         queue<string> tmp_gene_que;
@@ -68,7 +66,6 @@ private:
                         }
                     }
                 }
-                
                 cur_gene_que.pop();
             }
 
@@ -77,37 +74,17 @@ private:
 
         return -1;
     }
-    
 
 public:
     int minMutation(string startGene, string endGene, vector<string>& bank) {
 
-        // solution 1 (keven, refer other https://alanzhan.dev/post/2022-06-28-leetcode-433/)
+        // solution 1 (keven, using BFS, refer other https://alanzhan.dev/post/2022-06-28-leetcode-433/)
         {
-            auto res = check_onechar_for_startGen_From_bank(startGene, endGene, bank);
+            auto res = start_move_From_bank_BFS(startGene, endGene, bank);
 
             return res;
         }
-
-        int res = 0;
-        int checkIdx = 0;
-        vector<int> dif_idx_vec;
-
-        // STEP1: calc how many different character exist between startGene and endGene
-        while(checkIdx < 8){
-            if(startGene[checkIdx] != endGene[checkIdx]){
-                dif_idx_vec.push_back(checkIdx);
-                res++;
-            }
-            checkIdx++;
-        }
-
-        if(dif_idx_vec.size() > bank.size())
-            return -1;
         
-        // STEP2: check if mutation bit exist in bank
-
-        return res;
     }
 };
 
