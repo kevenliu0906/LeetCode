@@ -8,11 +8,49 @@
 using namespace std;
 
 class Solution {
+private:
+    void monotonic_stack(vector<int> &nums, vector<int> &next_greater_nums){
+        stack<int> monotonic_st;
+
+        for (int i = nums.size() - 1; i >= 0; i--)
+        {
+            while (monotonic_st.size() && monotonic_st.top() <= nums[i])
+            {
+                monotonic_st.pop();
+            }
+
+            next_greater_nums[i] = monotonic_st.empty() ? -1 : monotonic_st.top();
+            
+            monotonic_st.push(nums[i]);
+        }
+    }
+
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
-        // solution 1 (keven, best, using stack to solve)
+
+        vector<int> result;
+        // solution 0 (keven, using Monotonic Stack to solve)
         {
-            vector<int> result;
+            // STEP1: because the definition of input array is circular, so append itself again to simulate 
+            vector<int> nums_circular(nums.begin(), nums.end());
+
+            nums_circular.insert(nums_circular.end(), nums.begin(), nums.end());
+            result.resize(nums_circular.size(), -1);
+            // printf("nums_circular >>> \n");
+            // for (size_t i = 0; i < nums_circular.size(); i++)
+            // {
+            //     printf("%d,", nums_circular[i]);
+            // }
+            // printf("\n");
+
+            monotonic_stack(nums_circular, result);
+
+            result.erase(result.begin() + nums.size(), result.end());  // restore the original size
+
+            return result;
+        }
+        // solution 1 (keven, best, using stack to solve)
+        {    
             stack<pair<int,int>> nogreaternums_index_value_stack;  // record the element of non-found next-greater value
                                                                    // key: the index of vector for current num
                                                                    // value: the value for current num
@@ -114,8 +152,8 @@ int main()
 
     printf("\n\n");
 
-    printf("*****************************************************\n");
-    printf("************* testcase 3 (biggest element in the middle) ****************************\n");
+    printf("******************************************************\n");
+    printf("***** testcase 3 (biggest element in the middle) *****\n");
     printf("input nums = [5,3,2,6,1]\n");
     printf("expected result: output = [6,6,6,-1,5]\n");
     {
@@ -134,12 +172,12 @@ int main()
         }
         
     }
-    printf("*****************************************************\n");
+    printf("******************************************************\n");
 
     printf("\n\n");
 
     printf("*****************************************************\n");
-    printf("************* testcase 4 (biggest element in the tail) ****************************\n");
+    printf("***** testcase 4 (biggest element in the tail) *****\n");
     printf("input nums = [2,3,1,5,6]\n");
     printf("expected result: output = [3,5,5,6,-1]\n");
     {
@@ -162,8 +200,8 @@ int main()
 
     printf("\n\n");
 
-    printf("*****************************************************\n");
-    printf("************* testcase 5 (biggest element in the head) ****************************\n");
+    printf("****************************************************\n");
+    printf("***** testcase 5 (biggest element in the head) *****\n");
     printf("input nums = [8,3,2,6,1,5,3,8]\n");
     printf("expected result: output = [-1,6,6,8,5,8,8,-1]\n");
     {
@@ -182,12 +220,12 @@ int main()
         }
         
     }
-    printf("*****************************************************\n");
+    printf("****************************************************\n");
 
     printf("\n\n");
 
     printf("*****************************************************\n");
-    printf("************* testcase 6 (only 1 element) ****************************\n");
+    printf("************ testcase 6 (only 1 element) ************\n");
     printf("input nums = [8]\n");
     printf("expected result: output = [-1]\n");
     {
@@ -211,7 +249,7 @@ int main()
     printf("\n\n");
 
     printf("*****************************************************\n");
-    printf("************* testcase 7 (all elements are decrease order ) ****************************\n");
+    printf("*** testcase 7 (all elements are decrease order ) ***\n");
     printf("input nums = [3,2,1]\n");
     printf("expected result: output = [-1,3,3]\n");
     {
