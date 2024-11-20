@@ -6,14 +6,53 @@
 #include <stdlib.h>
 #include <vector>
 #include <unordered_map>
+#include <stack>
 
 using namespace std;
 
 class Solution{
+private:
+    void monotonic_stack(vector<int> &nums, unordered_map<int,int> &data_nums_NextGreaterValue){
+        stack<int> mono_st;
+        // printf("monotonic_stack (START)\n");
+        for (int i = nums.size() - 1; i >= 0; i--)
+        {
+            // printf("nums[%d]:%d\n", i, nums[i]);
+            while (!mono_st.empty() && mono_st.top() <= nums[i])
+            {
+                // printf("pop mono_st >>> mono_st.top()=%d\n", mono_st.top());
+                mono_st.pop();
+            }
+            
+            auto next_greater_value = mono_st.empty() ? -1 : mono_st.top();
+            // next_greater_nums[i] = next_greater_value;
+            // printf("next_greater_value:%d\n", next_greater_nums[i]);
+            data_nums_NextGreaterValue.insert(pair<int,int>(nums[i], next_greater_value));
+            
+            mono_st.push(nums[i]);
+        }
+        // printf("monotonic_stack (END)\n");
+    }
+
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
 
         vector<int> result;
+
+        // solution 0 (keven, refactor, using Monotonic Stack to solve)
+        {
+            // calc monotonic stack for nums2
+            unordered_map<int,int> data_nums_nextgreatervalue;
+
+            monotonic_stack(nums2, data_nums_nextgreatervalue);
+
+            for (int i = 0; i < nums1.size(); i++)
+            {
+                result.push_back(data_nums_nextgreatervalue[nums1[i]]);
+            }
+
+            return result;
+        }
 
         // solution 1 (keven, best)
         {
