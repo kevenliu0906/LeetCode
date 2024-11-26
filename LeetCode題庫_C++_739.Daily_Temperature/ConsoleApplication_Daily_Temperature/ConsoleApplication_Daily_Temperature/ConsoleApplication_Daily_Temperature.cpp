@@ -10,10 +10,33 @@
 using namespace std;
 
 class Solution {
+private:
+    void monotonic(vector<int> &temp, vector<int> &next_big_ele){
+        next_big_ele.resize(temp.size(), 0);   // reset
+        stack<int> monotonic_idx_st;   // store idx
+
+        for (int i = temp.size() - 1; i >= 0; i--)
+        {
+            while (!monotonic_idx_st.empty() && temp[monotonic_idx_st.top()] <= temp[i])
+            {
+                monotonic_idx_st.pop();
+            }
+            next_big_ele[i] = monotonic_idx_st.empty() ? 0 : monotonic_idx_st.top() - i;
+            monotonic_idx_st.push(i);
+        }
+    }
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         
-        // solution 0 (reference others, using stack to solve it)
+        // solution 0 (best solution, use monotonic stack to solve)
+        {
+            vector<int> res(temperatures.size());
+            monotonic(temperatures, res);
+
+            return res;
+        }
+
+        // solution 1 (reference others, using stack to solve it)
         //            a. https://ithelp.ithome.com.tw/m/articles/10237395
         //            b. https://anj910.medium.com/leetcode-739-daily-temperatures-%E4%B8%AD%E6%96%87-c906617d1810
         {
@@ -40,7 +63,7 @@ public:
             return result;
         }
 
-        // // solution 1 (keven, force directly, time limit exceed)
+        // // solution 2 (keven, force directly, time limit exceed)
         // {
         //     vector<int> result;
         //     result.resize(temperatures.size(), 0);    // assign the default value into result array
