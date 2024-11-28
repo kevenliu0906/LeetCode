@@ -8,7 +8,36 @@
 using namespace std;
 
 class StockSpanner {
-public:
+private:
+    typedef struct{
+        int cur_price;
+        int cur_price_span_count;
+    }_price_span;
+
+    stack<_price_span> monotonic_st;
+
+    int next_monotonic(int price){
+        
+        int span_count = 0;        
+        while (!monotonic_st.empty() && price >= monotonic_st.top().cur_price)
+        {
+            // current input price is bigger than last-input price
+            // printf("price:%d, top().price:%d, top().span:%d, final_span_count:%d\n", price, monotonic_st.top().cur_price, monotonic_st.top().cur_price_span_count, span_count);
+            span_count += monotonic_st.top().cur_price_span_count;
+            monotonic_st.pop();
+        }
+        
+        _price_span price_span;
+        price_span.cur_price = price;
+
+        price_span.cur_price_span_count = (span_count > 0) ? span_count + 1 : 1;  // must including itself, so need +1
+
+        monotonic_st.push(price_span);
+
+        return price_span.cur_price_span_count;
+    }
+
+public: 
 
     // for solution 0-0
     stack<pair<int, int>> num_meetcount_stack;   //key: num  value: the total-element-count of "smaller or equal" in front of num
@@ -26,6 +55,11 @@ public:
     }
     
     int next(int price) {
+
+        // solution 0 (keven, best solution, use monotonic stack to solve)
+        {
+            return next_monotonic(price);
+        }
 
         // solution 0-0 (best, reference others and use stack to solve)
         {
@@ -50,7 +84,7 @@ public:
             return res;
         }
 
-        // solution 0-1 (keven, using array to solve)
+        // solution 1 (keven, using array to solve)
         {
             int res = 0;
             if (num_vec.size() == 0)
